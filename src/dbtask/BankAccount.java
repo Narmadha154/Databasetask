@@ -1,4 +1,4 @@
-package dbtask;
+package src.dbtask;
 public class BankAccount {
     public static void main(String[] args) {
         InputInfo inputInfo=new InputInfo();

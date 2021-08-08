@@ -1,10 +1,10 @@
-package dbtask;
-public class Customer_Info {
+package src.dbtask;
+public class CustomerInfo {
     private int cusId;
     private String name;
     private String mobile;
     private int age;
-    public int getCusId() {
+    public static int getCusId() {
         return cusId;
     }
     public void setCusId(int cusId) {

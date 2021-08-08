@@ -1,10 +1,10 @@
-package dbtask;
+package src.dbtask;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 public class ConnectionDb {
-    public void createConnection() {
-        /*Connection con= null;*/
+    public static Connection createConnection() {
+       /*Connection con= null;*/
         String url = "jdbc:mysql://localhost:3306/mysql";
         String user = "root";
         String password = "Root@123";
@@ -20,5 +20,6 @@ public class ConnectionDb {
             System.out.println("An error occurred. Maybe user/password is invalid");
             ex.printStackTrace();
         }
+        return null;
     }
 }

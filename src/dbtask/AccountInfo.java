@@ -1,9 +1,10 @@
-package dbtask;
-public class Account_Info {
+package src.dbtask;
+public class AccountInfo {
     private int cusId;
     private String accNo;
     private String branch;
     private double balance;
+
     public int getCusId() {
         return cusId;
     }
@@ -27,5 +28,8 @@ public class Account_Info {
     }
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+    public String toString(){
+        return accNo+" "+branch+" "+balance;
     }
 }
