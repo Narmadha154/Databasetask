@@ -1,7 +1,4 @@
-package inputlayer;
-
-import dbtask.AccountDetails;
-import dbtask.DetailsList;
+package dbtask;
 
 import java.util.Scanner;
 public class InputInfo {
@@ -17,9 +14,11 @@ public class InputInfo {
             int select=sc.nextInt();
             if(select==1){
                 System.out.println("Account details");
-                AccountDetails.getAccountDetails();
+
             }
             else if(select==2){
+                System.out.println("Create your customer id");
+                DetailsList.getCustomerInfo();
                 System.out.println("enter your customer id to create a new account");
                 DetailsList.getAccountInfo();
             }
