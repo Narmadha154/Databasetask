@@ -1,10 +1,11 @@
 package dbtask;
-public class Customer_Info {
-    private int cusId;
+public class CustomerInfo {
+    private static int cusId;
     private String name;
     private String mobile;
     private int age;
-    public int getCusId() {
+
+    public static int getCusId() {
         return cusId;
     }
     public void setCusId(int cusId) {
@@ -13,8 +14,9 @@ public class Customer_Info {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void  setName(String name) {
         this.name = name;
+
     }
     public String getMobile() {
         return mobile;
@@ -27,6 +29,9 @@ public class Customer_Info {
     }
     public void setAge(int age) {
         this.age = age;
+    }
+    public String toString(){
+        return cusId+" "+name+" "+mobile+" "+age;
     }
 }
 
