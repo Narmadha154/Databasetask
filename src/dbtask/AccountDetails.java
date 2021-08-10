@@ -1,10 +1,8 @@
-/*package com.company;
+package dbtask;
 
-import java.util.HashMap;
 
 public class AccountDetails {
-    public void accountDetails(){
-        HashMap<Integer,String> outerHash=new HashMap();
-        outerHash.put(1,custo);
+    public static void accountDetails(int customerId){
+       CheckAccountDetails.checkDetails(customerId);
     }
-}*/
+}
