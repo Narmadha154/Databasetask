@@ -1,0 +1,55 @@
+package dbtask;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class InsertNewCustomer {
+    public static int insertInfo(ArrayList<CustomerInfo>customer) {
+        String query="Insert into CustomerInfo(Name,Mobile,Age)" + "values (?,?,?);";
+        int generatedKey = 0;
+        Connection con = ConnectionDb.createConnection();
+        try (PreparedStatement pst = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            for (CustomerInfo cus : customer) {
+                pst.setString(1, cus.getName());
+                pst.setString(2, cus.getMobile());
+                pst.setInt(3, cus.getAge());
+                pst.executeUpdate();
+                ResultSet rs = pst.getGeneratedKeys();
+                generatedKey = rs.next() ? rs.getInt(1) : 0;
+               /* if (generatedKey != 0) {
+                    System.out.println("your customer id is:" + generatedKey);
+                }*/
+            }
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return generatedKey;
+    }
+    
+    public static long insertAccountInfo(ArrayList<AccountInfo> account, int cusId) {
+        String query="Insert into AccountInfo(CusId,Branch,Balance)" + " values (?,?,?)";
+        long accountNo=0;
+        Connection con = ConnectionDb.createConnection();
+        try (PreparedStatement pst = con.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS)) {
+            for (AccountInfo accInfo : account) {
+                pst.setInt(1, cusId);
+                pst.setString(2, accInfo.getBranch());
+                pst.setDouble(3, accInfo.getBalance());
+                pst.executeUpdate();
+                ResultSet rs = pst.getGeneratedKeys();
+                accountNo = rs.next() ? rs.getLong(1) : 0;
+                /*if (accountNo != 0) {
+                    System.out.println("Your account number is:" + accountNo);
+                }*/
+            }
+           /* pst.executeUpdate();*/
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return accountNo;
+    }
+}
+
