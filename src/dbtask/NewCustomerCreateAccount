@@ -1,0 +1,14 @@
+package dbtask;
+
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+
+public class NewCustomerCreateAccount {
+
+    public static Pair<Integer, Long> callInsertMethods(){
+        int cusId = InsertNewCustomer.insertInfo(DetailsList.getCustomerInfo((ArrayList<CustomerInfo>) CreateNewAccount.createAccount()));
+       long accountNo =InsertNewCustomer.insertAccountInfo(DetailsList.getAccountInfo((ArrayList<AccountInfo>)CreateNewAccount.createAccountInfo()),cusId);
+       return new Pair<Integer,Long>(cusId,accountNo);
+    }
+}
