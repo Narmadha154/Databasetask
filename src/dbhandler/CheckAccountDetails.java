@@ -31,8 +31,4 @@ public class CheckAccountDetails {
             outerHash.put(cusId, innerHash);
         }
         /*System.out.println(outerHash.get(CustomerInfo.getCusId()));*/
-    } catch (SQLException throwable) {
-        System.out.println("some exceptions coming");
-        throwable.printStackTrace();
-    }
-}
+    } catch (SQL
